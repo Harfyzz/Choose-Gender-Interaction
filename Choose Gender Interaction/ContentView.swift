@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct ContentView: View {
+    
+    @State var genderGroup = RiveViewModel(fileName: "gender_select", fit: .contain)
     var body: some View {
         VStack {
                 HStack{
@@ -41,10 +44,13 @@ struct ContentView: View {
                 .foregroundColor(.white.opacity(0.6))
                 ProgressView(value: 0.33)
                     .progressViewStyle(.linear)
-                    .tint(Color("orange"))
+                    .tint(Color("primary orange"))
             }
             Spacer()
+            genderGroup.view()
+                .frame(width: 360)
             
+            Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Continue")
                         .padding()
