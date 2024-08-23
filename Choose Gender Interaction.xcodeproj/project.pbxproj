@@ -12,7 +12,7 @@
 		34A54F592C7792C600A089DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F582C7792C600A089DD /* Assets.xcassets */; };
 		34A54F5C2C7792C600A089DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F5B2C7792C600A089DD /* Preview Assets.xcassets */; };
 		34A54F642C779C2700A089DD /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 34A54F632C779C2700A089DD /* RiveRuntime */; };
-		34A54F6C2C77A04B00A089DD /* gender_select.riv in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F6B2C77A04B00A089DD /* gender_select.riv */; };
+		34A54F6E2C78C24900A089DD /* gender_select.riv in Resources */ = {isa = PBXBuildFile; fileRef = 34A54F6D2C78C24900A089DD /* gender_select.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,7 @@
 		34A54F562C7792C400A089DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34A54F582C7792C600A089DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34A54F5B2C7792C600A089DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		34A54F6B2C77A04B00A089DD /* gender_select.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = gender_select.riv; sourceTree = "<group>"; };
+		34A54F6D2C78C24900A089DD /* gender_select.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = gender_select.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +57,8 @@
 			children = (
 				34A54F542C7792C400A089DD /* Choose_Gender_InteractionApp.swift */,
 				34A54F562C7792C400A089DD /* ContentView.swift */,
-				34A54F6B2C77A04B00A089DD /* gender_select.riv */,
 				34A54F582C7792C600A089DD /* Assets.xcassets */,
+				34A54F6D2C78C24900A089DD /* gender_select.riv */,
 				34A54F5A2C7792C600A089DD /* Preview Content */,
 			);
 			path = "Choose Gender Interaction";
@@ -136,7 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A54F6C2C77A04B00A089DD /* gender_select.riv in Resources */,
+				34A54F6E2C78C24900A089DD /* gender_select.riv in Resources */,
 				34A54F5C2C7792C600A089DD /* Preview Assets.xcassets in Resources */,
 				34A54F592C7792C600A089DD /* Assets.xcassets in Resources */,
 			);

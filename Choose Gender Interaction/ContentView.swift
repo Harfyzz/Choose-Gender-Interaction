@@ -11,6 +11,7 @@ import RiveRuntime
 struct ContentView: View {
     
     @State var genderGroup = RiveViewModel(fileName: "gender_select", fit: .contain)
+    @State var isTapped = false
     var body: some View {
         VStack {
                 HStack{
@@ -47,19 +48,30 @@ struct ContentView: View {
                     .tint(Color("primary orange"))
             }
             Spacer()
+                .frame(height: 32)
+            Text("Choose Gender")
+                .fontWeight(.bold)
             genderGroup.view()
                 .frame(width: 360)
+                .onTapGesture {
+                    isTapped = true
+                }
             
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            VStack(spacing:16){
+                Text("Choose the gender your physiology best aligns with. Gender is used to calibrate Elite algorithms such as calorie burn, sleep needed, and more.")
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white.opacity(0.6))
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Continue")
                         .padding()
                         .fontWeight(.medium)
                         .foregroundStyle(Color("object"))
                         .frame(width: 313)
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 64))
-            })
+                        .background(.white.opacity(isTapped ? 1.0 : 0.4))
+                        .clipShape(RoundedRectangle(cornerRadius: 64))
+                })
+            }
         }.preferredColorScheme(.dark)
             .padding(.horizontal, 16)
     }
