@@ -11,7 +11,7 @@ import SwiftUI
 struct Choose_Gender_InteractionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Weight_and_Height()
         }
     }
 }

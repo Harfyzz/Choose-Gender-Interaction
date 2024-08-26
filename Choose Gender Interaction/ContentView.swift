@@ -60,6 +60,7 @@ struct ContentView: View {
             Spacer()
             VStack(spacing:16){
                 Text("Choose the gender your physiology best aligns with. Gender is used to calibrate Elite algorithms such as calorie burn, sleep needed, and more.")
+                    .font(.system(size: 12))
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white.opacity(0.6))
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
