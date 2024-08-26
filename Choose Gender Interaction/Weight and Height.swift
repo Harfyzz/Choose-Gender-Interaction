@@ -117,7 +117,12 @@ struct Weight_and_Height: View {
                                 Text(String(weightUnit))
                                     .fontWeight(.semibold)
                                     .font(.system(size: 24))
+                                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: weightUnit)
+                                    .contentTransition(.numericText())
                                 Text(isImperial ? "lbs" : "kg")
+                                    .id("unit")
+                                    .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: "unit")
+                                    .contentTransition(.numericText())
                             }
                         }
                     }
@@ -129,7 +134,7 @@ struct Weight_and_Height: View {
                         RoundedRectangle(cornerRadius: 16)
                             .stroke()
                             .foregroundColor(Color("object"))
-                }
+                    }
                 HStack {
                     VStack(alignment:.leading, spacing:48){
                         Image("height")
@@ -144,13 +149,20 @@ struct Weight_and_Height: View {
                                     Text(String(heightUnit))
                                         .fontWeight(.semibold)
                                         .font(.system(size: 24))
+                                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: heightUnit)
+                                        .contentTransition(.numericText())
                                     Text(isImperial ? "ft" : "m")
+                                        .id("unit")
+                                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: "unit")
+                                        .contentTransition(.numericText())
                                 }
                                 if isImperial {
                                     HStack(alignment:.bottom, spacing:4){
                                         Text(String(inchUnit))
                                             .fontWeight(.semibold)
                                             .font(.system(size: 24))
+                                            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: inchUnit)
+                                            .contentTransition(.numericText())
                                         Text("in")
                                     }
                                 }
@@ -165,44 +177,51 @@ struct Weight_and_Height: View {
                         RoundedRectangle(cornerRadius: 16)
                             .stroke()
                             .foregroundColor(Color("object"))
-                }
+                    }
                 
             }
-            HStack(spacing:8){
-                Picker("", selection: $weightUnit) {
-                    let weightRange = 10...500
-                    ForEach(weightRange, id: \.self) { weight in
-                        HStack{
-                            Text("\(weight)").tag(weight)
-                            Text(isImperial ? "lbs" : "kg")
-                        }
-                    }
-                }.pickerStyle(.wheel)
-                HStack(spacing:0){
-                    Picker("", selection: $heightUnit) {
-                        let heightRange = 3...20
-                        ForEach(heightRange, id: \.self) { weight in
-                            HStack{
-                                Text("\(weight)").tag(weight)
-                                Text(isImperial ? "ft" : "m")
-                        }
-                        }
-                    }.pickerStyle(.wheel)
-                    if isImperial {
-                        Picker("", selection: $inchUnit) {
-                            let inchRange = 0...12
-                            ForEach(inchRange, id: \.self) { weight in
-                                Text("\(weight) in").tag(weight)
+            
+                HStack(spacing:8){
+                    VStack {
+                        Picker("", selection: $weightUnit) {
+                            let weightRange = 10...500
+                            ForEach(weightRange, id: \.self) { weight in
+                                HStack{
+                                    Text("\(weight)").tag(weight)
+                                    Text(isImperial ? "lbs" : "kg")
+                                }
                             }
                         }.pickerStyle(.wheel)
-                        
+                    }
+                    
+                    VStack {
+                        HStack(spacing:0){
+                            Picker("", selection: $heightUnit) {
+                                let heightRange = 3...20
+                                ForEach(heightRange, id: \.self) { weight in
+                                    HStack{
+                                        Text("\(weight)").tag(weight)
+                                        Text(isImperial ? "ft" : "m")
+                                    }
+                                }
+                            }.pickerStyle(.wheel)
+                            if isImperial {
+                                Picker("", selection: $inchUnit) {
+                                    let inchRange = 0...12
+                                    ForEach(inchRange, id: \.self) { weight in
+                                        Text("\(weight) in").tag(weight)
+                                    }
+                                }.pickerStyle(.wheel)
+                                
+                            }
+                        }
                     }
                 }
-            }
+            
             Spacer()
             VStack(spacing:16){
                 Text("This information will help us establish your physiological profile. By selecting 'Next', I consent to the processing of data concerning my health.")
-                    .font(.system(size: 14))
+                    .font(.caption)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white.opacity(0.6))
                 Button(action: {
